@@ -26,6 +26,7 @@ namespace QuanLiSanBong
         public bool DaThanhToan { get; set; } = false;
 
         ChuoiKetNoi kn = new ChuoiKetNoi();
+
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
             DialogResult traloi = MessageBox.Show("Xác nhận thanh toán và in hóa đơn?", "Thanh toán", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -102,7 +103,7 @@ namespace QuanLiSanBong
                         decimal thanhTien = donGia;
                         _tongTienCuoi = thanhTien;
 
-                        lblTenKhachHang.Text = "Tên KH: " + tenKhach;
+                        lblTenKhach.Text = "Tên KH: " + tenKhach;
 
                         string maSanNgan = tenSan.Replace("Sân ", "S"); // Lấy mã sân ngắn gọn
 

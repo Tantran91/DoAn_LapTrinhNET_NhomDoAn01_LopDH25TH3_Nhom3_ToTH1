@@ -144,7 +144,7 @@
             this.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "DatSanBong";
-            this.Text = "DatSanBong";
+            this.Text = "Đặt sân bóng";
             this.ResumeLayout(false);
             this.PerformLayout();
 

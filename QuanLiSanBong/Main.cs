@@ -45,6 +45,7 @@ namespace QuanLiSanBong
             {
                 MenuThongKe.Enabled = false;
             }
+            LoadTrangThaiSan();
         }
         private void LoadTrangThaiSan(string tenSanLoc = "")
         {
@@ -421,6 +422,25 @@ namespace QuanLiSanBong
                 catch (Exception ex) { MessageBox.Show("Lỗi hủy: " + ex.Message); }
             }
         }
+        private void XuLyTraSan(string maDat, DateTime gioTra)
+        {
+            using (SqlConnection conn = new SqlConnection(kn.strKetNoi))
+            {
+                try
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("sp_TraSan", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@MaDat", maDat);
+                    cmd.Parameters.AddWithValue("@ThoiGianTra", gioTra);
+
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show($"Đã trả sân!");
+                }
+                catch (Exception ex) { MessageBox.Show("Lỗi: " + ex.Message); }
+            }
+        }
         private void lblSanA_Click(object sender, EventArgs e)
         {
             XuLySKClickSan(sender);
@@ -444,6 +464,26 @@ namespace QuanLiSanBong
             DangNhap lg = new DangNhap();
             this.Hide();
             lg.ShowDialog();
+        }
+
+        private void lblSanB_Click(object sender, EventArgs e)
+        {
+            XuLySKClickSan(sender);
+        }
+
+        private void lblSanC_Click(object sender, EventArgs e)
+        {
+            XuLySKClickSan(sender);
+        }
+
+        private void lblSanD_Click(object sender, EventArgs e)
+        {
+            XuLySKClickSan(sender);
+        }
+
+        private void lblSanE_Click(object sender, EventArgs e)
+        {
+            XuLySKClickSan(sender);
         }
     }
 }

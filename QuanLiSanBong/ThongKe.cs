@@ -45,11 +45,6 @@ namespace QuanLiSanBong
             chartDoanhThu.ChartAreas[0].AxisY.Title = "Số Tiền (VNĐ)";
             chartDoanhThu.Titles.Add("BIỂU ĐỒ DOANH THU THEO SÂN");
         }
-
-        private void btnThongKe_Click(object sender, EventArgs e)
-        {
-            LayDuLieuThongKe();
-        }
         private void LayDuLieuThongKe()
         {
             using (SqlConnection conn = new SqlConnection(kn.strKetNoi))
@@ -142,6 +137,11 @@ namespace QuanLiSanBong
             // Đặt tiêu đề trục (nếu chưa có)
             chartDoanhThu.ChartAreas[0].AxisX.Title = "Tên Sân";
             chartDoanhThu.ChartAreas[0].AxisY.Title = "Số Tiền (VNĐ)";
+        }
+
+        private void btnThongKe_Click_1(object sender, EventArgs e)
+        {
+            LayDuLieuThongKe();
         }
 
         private void MenuTrangChu_Click(object sender, EventArgs e)

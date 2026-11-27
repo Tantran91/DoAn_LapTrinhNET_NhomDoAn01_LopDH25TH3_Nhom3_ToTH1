@@ -48,10 +48,10 @@
             // 
             // btnHuy
             // 
-            this.btnHuy.BackColor = System.Drawing.Color.MistyRose;
+            this.btnHuy.BackColor = System.Drawing.Color.Gainsboro;
             this.btnHuy.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnHuy.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnHuy.ForeColor = System.Drawing.Color.DarkRed;
+            this.btnHuy.ForeColor = System.Drawing.Color.Black;
             this.btnHuy.Location = new System.Drawing.Point(212, 392);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(147, 53);
@@ -62,10 +62,10 @@
             // 
             // btnThanhToan
             // 
-            this.btnThanhToan.BackColor = System.Drawing.Color.MistyRose;
+            this.btnThanhToan.BackColor = System.Drawing.Color.Gainsboro;
             this.btnThanhToan.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnThanhToan.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnThanhToan.ForeColor = System.Drawing.Color.DarkRed;
+            this.btnThanhToan.ForeColor = System.Drawing.Color.Black;
             this.btnThanhToan.Location = new System.Drawing.Point(42, 392);
             this.btnThanhToan.Name = "btnThanhToan";
             this.btnThanhToan.Size = new System.Drawing.Size(147, 53);
@@ -172,7 +172,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(120, 74);
+            this.label3.Location = new System.Drawing.Point(102, 64);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(165, 19);
             this.label3.TabIndex = 12;
@@ -182,7 +182,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(56, 50);
+            this.label2.Location = new System.Drawing.Point(38, 40);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(303, 19);
             this.label2.TabIndex = 13;
@@ -192,7 +192,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label4.Location = new System.Drawing.Point(105, 103);
+            this.label4.Location = new System.Drawing.Point(87, 101);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(204, 22);
             this.label4.TabIndex = 14;
@@ -202,7 +202,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.Location = new System.Drawing.Point(109, 19);
+            this.label1.Location = new System.Drawing.Point(91, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(200, 23);
             this.label1.TabIndex = 15;
@@ -212,7 +212,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(386, 480);
+            this.ClientSize = new System.Drawing.Size(390, 480);
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnThanhToan);
             this.Controls.Add(this.lblMaDat);
@@ -232,7 +232,7 @@
             this.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "ThanhToan";
-            this.Text = "ThanhToan";
+            this.Text = "Thanh toán";
             this.Load += new System.EventHandler(this.ThanhToan_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -241,21 +241,25 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnHuy;
-        private System.Windows.Forms.Button btnThanhToan;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblMaHD;
+        private System.Windows.Forms.Label lblTenKhach;
+        private System.Windows.Forms.Label lblNgay;
         private System.Windows.Forms.Label lblMaDat;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label lblTongTien;
-        private System.Windows.Forms.Label lblTongGio;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblChiTiet;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lblTongGio;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblKhachTT;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label lblNgay;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lblTongTien;
+        private System.Windows.Forms.Button btnThanhToan;
+        private System.Windows.Forms.Button btnHuy;
     }
 }

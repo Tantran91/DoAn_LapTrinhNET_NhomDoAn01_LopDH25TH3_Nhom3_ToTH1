@@ -61,7 +61,7 @@
             this.groupBox2.Controls.Add(this.btnTraCuu);
             this.groupBox2.Controls.Add(this.txtTraCuu);
             this.groupBox2.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(14, 14);
+            this.groupBox2.Location = new System.Drawing.Point(14, 8);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1059, 103);
             this.groupBox2.TabIndex = 1;
@@ -155,51 +155,60 @@
             // lblSanC
             // 
             this.lblSanC.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSanC.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSanC.Image = ((System.Drawing.Image)(resources.GetObject("lblSanC.Image")));
             this.lblSanC.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblSanC.Location = new System.Drawing.Point(443, 135);
+            this.lblSanC.Location = new System.Drawing.Point(443, 120);
             this.lblSanC.Name = "lblSanC";
-            this.lblSanC.Size = new System.Drawing.Size(203, 318);
+            this.lblSanC.Size = new System.Drawing.Size(203, 333);
             this.lblSanC.TabIndex = 2;
+            this.lblSanC.Click += new System.EventHandler(this.lblSanC_Click);
             // 
             // lblSanD
             // 
             this.lblSanD.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSanD.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSanD.Image = ((System.Drawing.Image)(resources.GetObject("lblSanD.Image")));
             this.lblSanD.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblSanD.Location = new System.Drawing.Point(657, 135);
+            this.lblSanD.Location = new System.Drawing.Point(657, 120);
             this.lblSanD.Name = "lblSanD";
-            this.lblSanD.Size = new System.Drawing.Size(203, 318);
+            this.lblSanD.Size = new System.Drawing.Size(203, 333);
             this.lblSanD.TabIndex = 2;
+            this.lblSanD.Click += new System.EventHandler(this.lblSanD_Click);
             // 
             // lblSanE
             // 
             this.lblSanE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSanE.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSanE.Image = ((System.Drawing.Image)(resources.GetObject("lblSanE.Image")));
             this.lblSanE.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblSanE.Location = new System.Drawing.Point(870, 135);
+            this.lblSanE.Location = new System.Drawing.Point(870, 120);
             this.lblSanE.Name = "lblSanE";
-            this.lblSanE.Size = new System.Drawing.Size(203, 318);
+            this.lblSanE.Size = new System.Drawing.Size(203, 333);
             this.lblSanE.TabIndex = 2;
+            this.lblSanE.Click += new System.EventHandler(this.lblSanE_Click);
             // 
             // lblSanB
             // 
             this.lblSanB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSanB.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSanB.Image = ((System.Drawing.Image)(resources.GetObject("lblSanB.Image")));
             this.lblSanB.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblSanB.Location = new System.Drawing.Point(228, 135);
+            this.lblSanB.Location = new System.Drawing.Point(228, 120);
             this.lblSanB.Name = "lblSanB";
-            this.lblSanB.Size = new System.Drawing.Size(203, 318);
+            this.lblSanB.Size = new System.Drawing.Size(203, 333);
             this.lblSanB.TabIndex = 2;
+            this.lblSanB.Click += new System.EventHandler(this.lblSanB_Click);
             // 
             // lblSanA
             // 
             this.lblSanA.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSanA.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSanA.Image = ((System.Drawing.Image)(resources.GetObject("lblSanA.Image")));
             this.lblSanA.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblSanA.Location = new System.Drawing.Point(14, 135);
+            this.lblSanA.Location = new System.Drawing.Point(14, 120);
             this.lblSanA.Name = "lblSanA";
-            this.lblSanA.Size = new System.Drawing.Size(203, 318);
+            this.lblSanA.Size = new System.Drawing.Size(203, 333);
             this.lblSanA.TabIndex = 2;
             this.lblSanA.Click += new System.EventHandler(this.lblSanA_Click);
             // 
@@ -241,20 +250,20 @@
             // MenuTrangChu
             // 
             this.MenuTrangChu.Name = "MenuTrangChu";
-            this.MenuTrangChu.Size = new System.Drawing.Size(180, 22);
+            this.MenuTrangChu.Size = new System.Drawing.Size(127, 22);
             this.MenuTrangChu.Text = "Trang chủ";
             // 
             // MenuThongKe
             // 
             this.MenuThongKe.Name = "MenuThongKe";
-            this.MenuThongKe.Size = new System.Drawing.Size(180, 22);
+            this.MenuThongKe.Size = new System.Drawing.Size(127, 22);
             this.MenuThongKe.Text = "Thống kê";
             this.MenuThongKe.Click += new System.EventHandler(this.MenuThongKe_Click);
             // 
             // MenuDangXuat
             // 
             this.MenuDangXuat.Name = "MenuDangXuat";
-            this.MenuDangXuat.Size = new System.Drawing.Size(180, 22);
+            this.MenuDangXuat.Size = new System.Drawing.Size(127, 22);
             this.MenuDangXuat.Text = "Đăng xuất";
             this.MenuDangXuat.Click += new System.EventHandler(this.MenuDangXuat_Click);
             // 
@@ -278,7 +287,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Main";
-            this.Text = "Main";
+            this.Text = "Quản lí dịch vụ cho thuê sân bóng";
             this.Load += new System.EventHandler(this.Main_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
