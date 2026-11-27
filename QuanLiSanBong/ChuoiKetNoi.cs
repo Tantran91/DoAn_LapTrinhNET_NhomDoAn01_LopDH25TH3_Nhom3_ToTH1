@@ -8,6 +8,6 @@ namespace QuanLiSanBong
 {
     internal class ChuoiKetNoi
     {
-        public string strKetNoi = @"Data Source=STTRAN\SQLEXPRESS;Initial Catalog=QuanLiSanBong;Integrated Security=True";
+        public string strKetNoi = @"Data Source=LAPTOP-41SAUQVN;Initial Catalog=QuanLiSanBong;Integrated Security=True";
     }
 }
