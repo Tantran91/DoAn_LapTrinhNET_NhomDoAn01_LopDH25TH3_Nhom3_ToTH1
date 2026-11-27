@@ -1,0 +1,158 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
+
+namespace QuanLiSanBong
+{
+    public partial class ThongKe : Form
+    {
+        public ThongKe()
+        {
+            InitializeComponent();
+        }
+        ChuoiKetNoi kn = new ChuoiKetNoi();
+
+        private void ThongKe_Load(object sender, EventArgs e)
+        {
+            // Mặc định chọn từ đầu tháng đến hiện tại
+            DateTime now = DateTime.Now;
+            dtpTuNgay.Value = new DateTime(now.Year, now.Month, 1);
+            dtpDenNgay.Value = now;
+
+            CauHinhBieuDo();
+        }
+        private void CauHinhBieuDo()
+        {
+            // Xóa dữ liệu mẫu
+            chartDoanhThu.Series.Clear();
+
+            // Tạo Series mới (Cột)
+            Series series = new Series("Doanh Thu");
+            series.ChartType = SeriesChartType.Column; // Loại biểu đồ cột
+            series.IsValueShownAsLabel = true; // Hiện số tiền trên đầu cột
+            series.Color = Color.SteelBlue; // Màu cột
+
+            chartDoanhThu.Series.Add(series);
+            chartDoanhThu.ChartAreas[0].AxisX.Title = "Tên Sân";
+            chartDoanhThu.ChartAreas[0].AxisY.Title = "Số Tiền (VNĐ)";
+            chartDoanhThu.Titles.Add("BIỂU ĐỒ DOANH THU THEO SÂN");
+        }
+
+        private void btnThongKe_Click(object sender, EventArgs e)
+        {
+            LayDuLieuThongKe();
+        }
+        private void LayDuLieuThongKe()
+        {
+            using (SqlConnection conn = new SqlConnection(kn.strKetNoi))
+            {
+                try
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("sp_ThongKeDoanhThu", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Lấy từ giây đầu tiên của TuNgay đến giây cuối cùng của DenNgay
+                    DateTime tuNgay = dtpTuNgay.Value.Date;
+                    // Ví dụ: Chọn 20/11 -> Lấy đến 23:59:59 của ngày 20/11
+                    DateTime denNgay = dtpDenNgay.Value.Date.AddDays(1).AddSeconds(-1);
+
+                    cmd.Parameters.AddWithValue("@TuNgay", tuNgay);
+                    cmd.Parameters.AddWithValue("@DenNgay", denNgay);
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    // Đổ dữ liệu
+                    dgvDoanhThu.DataSource = dt;
+
+                    // Tự động giãn cột cho đẹp 
+                    dgvDoanhThu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+                    // Format tiền tệ
+                    if (dgvDoanhThu.Columns["Thành Tiền"] != null)
+                        dgvDoanhThu.Columns["Thành Tiền"].DefaultCellStyle.Format = "#,### VNĐ";
+
+                    // Format ngày giờ 
+                    if (dgvDoanhThu.Columns["Ngày Thanh Toán"] != null)
+                        dgvDoanhThu.Columns["Ngày Thanh Toán"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm";
+
+                    // Tính tổng tiền
+                    decimal tongTien = 0;
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        if (row["Thành Tiền"] != DBNull.Value)
+                        {
+                            tongTien += Convert.ToDecimal(row["Thành Tiền"]);
+                        }
+                    }
+                    lblTongDoanhThu.Text = $"Tổng doanh thu: {tongTien:#,###} VNĐ";
+
+                    // Vẽ biểu đồ
+                    VeBieuDo(dt);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi thống kê: " + ex.Message);
+                }
+            }
+        }
+        private void VeBieuDo(DataTable dt)
+        {
+            chartDoanhThu.Series.Clear();
+
+            // 2. Tạo mới lại Series "Doanh Thu" ngay tại đây cho chắc ăn
+            Series series = new Series("Doanh Thu");
+            series.ChartType = SeriesChartType.Column; // Loại biểu đồ cột
+            series.Color = Color.SteelBlue;
+            series.IsValueShownAsLabel = true; // Hiện số tiền trên đầu cột
+
+            // Thêm nó vào Chart
+            chartDoanhThu.Series.Add(series);
+
+            var thongKeSan = new System.Collections.Generic.Dictionary<string, decimal>();
+
+            foreach (DataRow row in dt.Rows)
+            {
+                string tenSan = row["Tên Sân"].ToString();
+                decimal tien = Convert.ToDecimal(row["Thành Tiền"]);
+
+                if (thongKeSan.ContainsKey(tenSan))
+                    thongKeSan[tenSan] += tien;
+                else
+                    thongKeSan.Add(tenSan, tien);
+            }
+
+            // Đổ dữ liệu từ Dictionary vào Chart
+            foreach (var item in thongKeSan)
+            {
+                // X = Tên sân, Y = Tổng tiền sân đó
+                chartDoanhThu.Series["Doanh Thu"].Points.AddXY(item.Key, item.Value);
+            }
+
+            // Đặt tiêu đề trục (nếu chưa có)
+            chartDoanhThu.ChartAreas[0].AxisX.Title = "Tên Sân";
+            chartDoanhThu.ChartAreas[0].AxisY.Title = "Số Tiền (VNĐ)";
+        }
+
+        private void MenuTrangChu_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void MenuTroGiup_Click(object sender, EventArgs e)
+        {
+            TroGiup tg = new TroGiup();
+            tg.ShowDialog();
+        }
+    }
+}
