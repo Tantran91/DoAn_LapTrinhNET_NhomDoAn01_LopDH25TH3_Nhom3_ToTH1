@@ -230,7 +230,7 @@ END;
 GO
 
 
-ALTER PROCEDURE sp_ThongKeDoanhThu
+    CREATE OR ALTER PROCEDURE sp_ThongKeDoanhThu
     @TuNgay DATETIME,
     @DenNgay DATETIME
 AS
